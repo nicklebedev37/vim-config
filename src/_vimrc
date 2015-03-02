@@ -1,5 +1,7 @@
 "Must have"
 set nocompatible
+set nobackup
+set nowritebackup
 filetype plugin indent on
 
 "###############################################################"
@@ -19,6 +21,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
+Bundle 'ntpeters/vim-better-whitespace'
 
 "Additionally requires CTags"
 Bundle 'majutsushi/tagbar'
@@ -31,8 +34,15 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+set number
 
 :colorscheme twilight
+
+"###############################################################"
+"Plugins initialization"
+
+"vim-better-whitespace"
+:autocmd VimEnter * highlight ExtraWhitespace ctermbg = darkgreen guibg = darkcyan
 
 "###############################################################"
 "Default setting"
@@ -65,4 +75,3 @@ function MyDiff()
   endif
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
-
